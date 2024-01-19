@@ -86,3 +86,16 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+var netProfit = 0
+
+finances.forEach(element => {
+  netProfit += element[1]
+});
+
+
+
+
+
+console.log("Total number of months included in the finances: " + finances.length)
+console.log("Net profit for the months: £" + netProfit)
