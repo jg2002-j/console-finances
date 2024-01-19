@@ -102,7 +102,6 @@ for (let i = 0; i < finances.length -1; i++) {
   changesInTotals.push(change)
 }
 
-console.log(changesInTotals)
 var averageChange = 0
 changesInTotals.forEach(element => {
   averageChange += element
@@ -119,10 +118,20 @@ for (let a = 0; a < changesInTotals.length; a++) {
   }
 }
 
+greatestDecrease = 100000000
+greatestDecreaseMonth = 0
+
+for (let b = 0; b < changesInTotals.length; b++) {
+  const changeGI = changesInTotals[b];
+  if (changeGI < greatestDecrease) {
+    greatestDecrease = changesInTotals[b];
+    greatestDecreaseMonth = b+1;
+  }
+}
 
 console.log("Total number of months included in the finances: " + finances.length)
 console.log("Net profit for the months: £" + netProfit)
 console.log("Average change in total between month: £" + (averageChange/(finances.length - 1)).toFixed(2))
 console.log("Greatest Increase in Profits/Losses: " + finances[greatestIncreaseMonth][0] + " | £" + greatestIncrease)
-// console.log("Greatest Decrease in Profits/Losses: " + )
+console.log("Greatest Decrease in Profits/Losses: " + finances[greatestDecreaseMonth][0] + " | £" + greatestDecrease)
 
