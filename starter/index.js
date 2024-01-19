@@ -93,9 +93,27 @@ finances.forEach(element => {
   netProfit += element[1]
 });
 
+changesInTotals = []
 
+for (let i = 0; i < finances.length -1; i++) {
+  const monthTotal = finances[i][1];
+  const nextMonthTotal = finances[i + 1][1];
+  const change = nextMonthTotal - monthTotal;
+  changesInTotals.push(change)
+}
 
+console.log(changesInTotals)
+var averageChange = 0
+changesInTotals.forEach(element => {
+  averageChange += element
+});
+
+changesInTotals
 
 
 console.log("Total number of months included in the finances: " + finances.length)
 console.log("Net profit for the months: £" + netProfit)
+console.log("Average change in total between month: £" + (averageChange/(finances.length - 1)).toFixed(2))
+console.log("Greatest Increase in Profits/Losses: " + "")
+// console.log("Greatest Decrease in Profits/Losses: " + )
+
